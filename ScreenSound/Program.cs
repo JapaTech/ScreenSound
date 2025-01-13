@@ -1,7 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
-
-
-Dictionary<string, List<int>> nomesDasBandas = new Dictionary<string, List<int>>();
+﻿Dictionary<string, List<int>> nomesDasBandas = new Dictionary<string, List<int>>();
 nomesDasBandas.Add("Mamonas Assassinas", new List<int>());
 
 List<int> numeroInteioro = new List<int>() { 0, 1, 2, 3, 4, 5};

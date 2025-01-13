@@ -1,9 +1,25 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Jonathan\\source\\repos\\ScreenSound\\",
+  "WorkspaceRootPath": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\source\\repos\\screensound\\screensound\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\desktop\\estudo\\alura\\screensound\\screensound\\musica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|solutionrelative:screensound\\musica.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\desktop\\estudo\\alura\\screensound\\screensound\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|solutionrelative:screensound\\album.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\desktop\\estudo\\alura\\screensound\\screensound\\banda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|solutionrelative:screensound\\banda.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\desktop\\estudo\\alura\\screensound\\screensound\\genero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|solutionrelative:screensound\\genero.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|c:\\users\\jonathan\\desktop\\estudo\\alura\\screensound\\screensound\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{7E8DE658-200F-453C-83FE-1CEFD18817DE}|ScreenSound\\ScreenSound.csproj|solutionrelative:screensound\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -14,17 +30,69 @@
       "DocumentGroups": [
         {
           "DockedWidth": 164,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Banda.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Banda.cs",
+              "RelativeDocumentMoniker": "screenSound\\Banda.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Banda.cs",
+              "RelativeToolTip": "screenSound\\Banda.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAcwAcAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-13T21:20:28.514Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Genero.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Genero.cs",
+              "RelativeDocumentMoniker": "screenSound\\Genero.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Genero.cs",
+              "RelativeToolTip": "screenSound\\Genero.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T23:04:25.407Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Album.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Album.cs",
+              "RelativeDocumentMoniker": "screenSound\\Album.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Album.cs",
+              "RelativeToolTip": "screenSound\\Album.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAlwBUAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T22:51:38.82Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "Musica.cs",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Musica.cs",
+              "RelativeDocumentMoniker": "screenSound\\Musica.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Musica.cs",
+              "RelativeToolTip": "screenSound\\Musica.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAcwAwAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-10T22:48:17.79Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\Jonathan\\source\\repos\\ScreenSound\\ScreenSound\\Program.cs",
-              "RelativeDocumentMoniker": "ScreenSound\\Program.cs",
-              "ToolTip": "C:\\Users\\Jonathan\\source\\repos\\ScreenSound\\ScreenSound\\Program.cs",
-              "RelativeToolTip": "ScreenSound\\Program.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAA4wCIAAAAEAAAAAAAAAA==",
+              "DocumentMoniker": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Program.cs",
+              "RelativeDocumentMoniker": "screenSound\\Program.cs",
+              "ToolTip": "C:\\Users\\Jonathan\\Desktop\\Estudo\\Alura\\ScreenSound\\screenSound\\Program.cs",
+              "RelativeToolTip": "screenSound\\Program.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA1wAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-01-02T14:28:34.591Z",
               "EditorCaption": ""
