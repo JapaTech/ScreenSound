@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ScreenSound
+namespace ScreenSound.Modelos;
+
+internal interface IAvaliavel
 {
-    internal class Genero
-    {
-        public string Nome { get; set; }
-    }
+    double Media { get; }
+    void Avaliar(Avaliacao nota);
 }

@@ -1,183 +1,105 @@
-﻿Dictionary<string, List<int>> nomesDasBandas = new Dictionary<string, List<int>>();
-nomesDasBandas.Add("Mamonas Assassinas", new List<int>());
+﻿using System.Text.Json;
+using System.Text.Json.Nodes;
+using ScreenSound;
+using ScreenSound.Menus;
+using ScreenSound.Menus.Bandas;
+using ScreenSound.Modelos;
 
-List<int> numeroInteioro = new List<int>() { 0, 1, 2, 3, 4, 5};
-
-void Cabecario()
+using(HttpClient client = new HttpClient())
 {
-    Console.WriteLine(@"
-░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
-██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
-╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
-░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
-██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
-╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
-
-    Console.WriteLine("\nBoas vindas ao Screen Sound");
-}
-
-void ExibirMenu()
-{
-    Console.WriteLine();
-    Console.WriteLine("Digite 1 para registrar uma banda");
-    Console.WriteLine("Digite 2 para listar todas banda");
-    Console.WriteLine("Digite 3 para avaliar uma banda");
-    Console.WriteLine("Digite 4 para exibir a média uma banda");
-    Console.WriteLine("Digite -1 para sair");
-}
-
-void ExecutarMenu()
-{
-    Console.Write("\nEscolha uma opção: ");
-    int opcaoEscolhida = int.Parse(Console.ReadLine()!);
-
-    switch (opcaoEscolhida)
+    try
     {
-        case 1:
-            RegistrarBanda();
-            break;
-        case 2:
-            ListarBandas();
-            break;
-        case 3:
-            AvaliarUmaBanda();
-            break;
-        case 4:
-            ExibirNotaMedia();
-            break;
-        case -1:
-            Console.WriteLine("Tchau");
-            break;
-        default:
-            Console.WriteLine("Opção inválida: " + opcaoEscolhida);
-            break;
+        string resposta = await client.GetStringAsync("https://guilhermeonrails.github.io/api-csharp-songs/songs.json");
+        //Console.WriteLine(resposta);
+        var musicas = JsonSerializer.Deserialize<List<Musica>>(resposta);
+        musicas[0].ExibirFichaTecnica();
     }
-}
-
-void ExibirTituloOpções(string titulo)
-{
-    int quantidadeDeLetras = titulo.Length;
-    string tracos =  string.Empty.PadLeft(quantidadeDeLetras, '-');
-    Console.WriteLine(titulo);
-    Console.WriteLine(tracos+ "\n");
-}
-
-void RegistrarBanda()
-{
-    Console.Clear();
-    ExibirTituloOpções("REGISTRO DE BANDAS");
-    Console.Write("Digite o nome da banda: ");
-    string nomeDaBanda = Console.ReadLine()!;
-    nomesDasBandas.Add(nomeDaBanda, new List<int>());
-    Console.WriteLine($"A banda {nomeDaBanda} foi registrada com sucesso");
-    Thread.Sleep(2000);
-    MenuInicial();
-}
-void ListarBandas()
-{
-    Console.Clear();
-    ExibirTituloOpções("BANDAS CADASTRADAS");
-    foreach (string nome in nomesDasBandas.Keys)
+    catch (Exception ex)
     {
-        Console.WriteLine(nome);
-    }
-    Console.WriteLine("\nPressione qualquer tecla para continuar");
-    Console.ReadKey();
-    MenuInicial();
-}
-
-void AvaliarUmaBanda()
-{
-    Console.Clear();
-    ExibirTituloOpções("Avaliar uma banda");
-    Console.Write("Digite o nome da banda: ");
-    string nomeDaBanda = Console.ReadLine()!;
-    if (nomesDasBandas.ContainsKey(nomeDaBanda))
-    {
-        Console.Write($"\nQual é a nota que você vai dar para a {nomeDaBanda}? ");
-        int nota = int.Parse(Console.ReadLine()!);
-        nomesDasBandas[nomeDaBanda].Add(nota);
-        Console.WriteLine($"\nVocê deu a nota {nota} para a banda {nomeDaBanda}");
-        Thread.Sleep(3000);
-        MenuInicial();
-    }
-    else
-    {
-        Console.WriteLine("\nBanda NÃO encontrada");
-        Console.WriteLine("Pressione qualquer tecla para continuar");
-        Console.ReadKey();
-        MenuInicial();
+        Console.WriteLine($"Erro: " + ex.Message);
     }
 }
 
-void ExibirNotaMedia()
-{
-    Console.Clear();
-    ExibirTituloOpções("Nota Média da Banda");
-    Console.Write("Digite o nome da banda: ");
-    string nomeDaBanda = Console.ReadLine()!;
-    if (nomesDasBandas.ContainsKey(nomeDaBanda))
-    {  
-        Console.WriteLine($"\nA banda {nomeDaBanda} tem a média de: {nomesDasBandas[nomeDaBanda].Average().ToString("F2")}");
-        Console.WriteLine("Pressione qualquer tecla para continuar");
-        Console.ReadKey();
-        MenuInicial();
-    }
-    else
-    {
-        Console.WriteLine("\n Banda NÃO encontrada");
-        Console.WriteLine("Pressione qualquer tecla para continuar");
-        Console.ReadKey();
-        MenuInicial();
-    }
-}
+//Dictionary<string, List<int>> nomesDasBandas = new Dictionary<string, List<int>>();
+//nomesDasBandas.Add("Mamonas Assassinas", new List<int>());
 
-void MenuInicial()
-{
-    Console.Clear();
-    Cabecario();
-    ExibirMenu();
-    ExecutarMenu();
-}
+//Banda ira = new Banda("Ira!");
+//ira.Avaliar(new Avaliacao(10));
+//ira.Avaliar(new Avaliacao(8));
+//ira.Avaliar(new Avaliacao(6));
+//await ira.GerarDescricaoAsync();
+//Banda beatles = new("The Beatles");
 
-MenuInicial();
+//Dictionary<string, Banda> bandasRegistradas = new();
+//bandasRegistradas.Add(ira.Nome, ira);
+//bandasRegistradas.Add(beatles.Nome, beatles);
 
-void QuatroOperacoesDeDoisNumeros()
-{
-    Console.Write("Digite um número: ");
-    float numero1 = float.Parse(Console.ReadLine()!);
-    Console.Write("\nDigite outro número: ");
-    float numero2 = float.Parse(Console.ReadLine()!);
 
-    Console.WriteLine($"\nSoma = {(numero1 + numero2)}");
-    Console.WriteLine($"\nSubtracao = {(numero1 - numero2)}");
-    Console.WriteLine($"\nMultiplicação= {(numero1 * numero2)}");
-    Console.WriteLine($"\nDivisão= {(numero1 / numero2)}");
-    Console.ReadKey();
-}
+//void Cabecario()
+//{
+//    Console.WriteLine(@"
+//░██████╗░█████╗░██████╗░███████╗███████╗███╗░░██╗  ░██████╗░█████╗░██╗░░░██╗███╗░░██╗██████╗░
+//██╔════╝██╔══██╗██╔══██╗██╔════╝██╔════╝████╗░██║  ██╔════╝██╔══██╗██║░░░██║████╗░██║██╔══██╗
+//╚█████╗░██║░░╚═╝██████╔╝█████╗░░█████╗░░██╔██╗██║  ╚█████╗░██║░░██║██║░░░██║██╔██╗██║██║░░██║
+//░╚═══██╗██║░░██╗██╔══██╗██╔══╝░░██╔══╝░░██║╚████║  ░╚═══██╗██║░░██║██║░░░██║██║╚████║██║░░██║
+//██████╔╝╚█████╔╝██║░░██║███████╗███████╗██║░╚███║  ██████╔╝╚█████╔╝╚██████╔╝██║░╚███║██████╔╝
+//╚═════╝░░╚════╝░╚═╝░░╚═╝╚══════╝╚══════╝╚═╝░░╚══╝  ╚═════╝░░╚════╝░░╚═════╝░╚═╝░░╚══╝╚═════╝░");
 
-void TotalDaLista()
-{
-    int soma = 0;
+//    Console.WriteLine("\nBoas vindas ao Screen Sound");
+//}
 
-    foreach (int i in numeroInteioro)
-    {
-        soma += i;
-    }
+//Dictionary<int, MenuBandas> opcoes = new();
+//opcoes.Add(1, new RegistrarBanda());
+//opcoes.Add(2, new RegistrarAlbum());
+//opcoes.Add(3, new MostrarBandas());
+//opcoes.Add(4, new AvaliarBanda());
+//opcoes.Add(5, new AvaliarAlbum());
+//opcoes.Add(6, new ExibirDetalhes());
+//opcoes.Add(-1, new Sair());
 
-    Console.WriteLine("A soma dos números da lista é: " + soma);
-    Console.ReadKey();
-}
 
-void NumerosParesDaLista()
-{
+//void ExibirMenu()
+//{
+//    Console.WriteLine();
+//    Console.WriteLine("Digite 1 para registrar uma banda");
+//    Console.WriteLine("Digite 2 para registrar um album");
+//    Console.WriteLine("Digite 3 para listar todas banda");
+//    Console.WriteLine("Digite 4 para avaliar uma banda");
+//    Console.WriteLine("Digite 5 para avaliar uma Album");
+//    Console.WriteLine("Digite 6 para exibir detalhes de uma banda");
+//    Console.WriteLine("Digite -1 para sair");
+//}
 
-    foreach (int i in numeroInteioro)
-    {
-        if (i % 2 == 0)
-        {
-            Console.WriteLine(i);
-        }
-    }
-    Console.ReadKey();
-}
+//void ExecutarMenu()
+//{
+//    Console.Write("\nDigite a sua opção: ");
+//    string opcaoEscolhida = Console.ReadLine()!;
+//    int opcaoEscolhidaNumerica = int.Parse(opcaoEscolhida);
+
+//    if (opcoes.ContainsKey(opcaoEscolhidaNumerica))
+//    {
+//        MenuBandas menuASerExibido = opcoes[opcaoEscolhidaNumerica];
+//        //menuASerExibido.Executar(bandasRegistradas);
+
+//        if (opcaoEscolhidaNumerica > 0)
+//        {
+//            MenuInicial();
+//        }
+//    }
+//    else
+//    {
+//        Console.WriteLine("Opção inválida");
+//    }
+//}
+
+
+
+//void MenuInicial()
+//{
+//    Console.Clear();
+//    Cabecario();
+//    ExibirMenu();
+//    ExecutarMenu();
+//}
+
+//MenuInicial();
