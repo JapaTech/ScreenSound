@@ -13,11 +13,34 @@ using(HttpClient client = new HttpClient())
         //Console.WriteLine(resposta);
         var musicas = JsonSerializer.Deserialize<List<Musica>>(resposta);
         musicas[0].ExibirFichaTecnica();
+        MusicasFavoritas musicasFavoritas1 = new("Jonathan", new List<Musica>());
+        musicasFavoritas1.AdicionarMusica(musicas[7]);
+        musicasFavoritas1.AdicionarMusica(musicas[10]);
+        musicasFavoritas1.AdicionarMusica(musicas[12]);
+        musicasFavoritas1.AdicionarMusica(musicas[13]);
+        musicasFavoritas1.AdicionarMusica(musicas[57]);
+        musicasFavoritas1.AdicionarMusica(musicas[24]);
+        musicasFavoritas1.AdicionarMusica(musicas[123]);
+        musicasFavoritas1.AdicionarMusica(musicas[512]);
+        musicasFavoritas1.AdicionarMusica(musicas[999]);
+        musicasFavoritas1.AdicionarMusica(musicas[1000]);
+
+        var musicasTonalC = musicas.Where(m => m.Tonalidade.Equals("C#"))
+            .OrderBy(m => m.Nome).
+            Select(m => m.Nome)
+            .Distinct()
+            .ToList() ;
+        foreach (var item in musicasTonalC)
+        {
+            Console.WriteLine(item);
+        }
     }
     catch (Exception ex)
     {
         Console.WriteLine($"Erro: " + ex.Message);
     }
+
+
 }
 
 //Dictionary<string, List<int>> nomesDasBandas = new Dictionary<string, List<int>>();
